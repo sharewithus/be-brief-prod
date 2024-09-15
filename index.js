@@ -67,10 +67,10 @@ app.use(express.json());
 app.use(AuthRoute);
 // store.sync();
 
-const options = {
-  key: fs.readFileSync("./server.key"),
-  cert: fs.readFileSync("./server.cert"),
-};
+// const options = {
+//   key: fs.readFileSync("./server.key"),
+//   cert: fs.readFileSync("./server.cert"),
+// };
 
 // console.log(options);
 const server = app.listen(process.env.APP_PORT || 8000, () => {
