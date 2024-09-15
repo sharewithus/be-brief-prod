@@ -54,6 +54,8 @@ app.use(
       "https://localhost/operating-system/PTFL/frontend/",
       "https://172.20.10.3",
       "http://172.20.10.3",
+      "http://kmi.idlaps.com",
+      "https://kmi.idlaps.com",
     ],
   })
 );
@@ -71,9 +73,11 @@ const options = {
 };
 
 // console.log(options);
-app.listen(process.env.APP_PORT, () => {
+const server = app.listen(process.env.APP_PORT || 8000, () => {
   console.log("Server up and running...");
 });
+server.keepAliveTimeout = 120 * 1000;
+server.headersTimeout = 120 * 1000;
 
 // https.createServer(options, app).listen(8000, () => {
 //   console.log("Backend server is running on https://172.20.10.3:8000");
